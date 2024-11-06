@@ -16,13 +16,13 @@ const { defaultName, tmpDir } = require('../config')
  */
 
 exports.getExtensions = async extSource => {
-  const files = extSource.filter(file => file.endsWith('.crx'))
+  const files = extSource.filter(file => file.endsWith('.zip'))
   if (!files.length) throw new Error('no extensions found')
   const extList = files.map(file => {
     return {
       source: isAbsolute(file) ? file : (process.cwd(), file),
       path: join(tmpDir, basename(file)),
-      name: basename(file).replace('.crx', '')
+      name: basename(file).replace('.zip', '')
     }
   })
   await unzipExtensions(extList)
@@ -72,7 +72,7 @@ exports.getDefaultExt = () => {
  */
 
 exports.normalizeExtName = fileName => {
-  let name = basename(fileName).replace('.crx', '')
+  let name = basename(fileName).replace('.zip', '')
   // @fixme better regexp to catch name like unlimited-free-vpn---hola.crx
   name = name.replace(/---/, '-')
   name = name.replace(/_v.*/, '')

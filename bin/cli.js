@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-const globby = require('globby')
 const { launch } = require('../src')
 const log = require('../src/utils/logger')
 const { formats, defaultTotalRuns, defaultFormat, defaultUrl } = require('../src/config')
@@ -29,7 +28,7 @@ const opts = {
   disableGather: program.disableGather
 }
 
-const files = globby.sync(program.args)
+const files = program.args
 launch(files, opts)
   .catch(e => {
     log.error(e.message)

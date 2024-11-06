@@ -42,7 +42,8 @@
     "lighthouse": "^5.1.0",
     "lodash": "^4.17.11",
     "open": "^6.3.0",
-    "puppeteer": "^1.17.0",
+    "pupeteer": "^0.0.1",
+    "puppeteer": "^22.8.2",
     "simple-format-number": "^0.1.2",
     "unzip-crx": "^0.2.0"
   },
